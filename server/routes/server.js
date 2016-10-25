@@ -72,7 +72,7 @@ module.exports = function (server) {
           term : {
           }
         };
-        var rawHostField = config.fields.mapping.hostname + ".raw";
+        var rawHostField = config.fields.mapping.hostname;
         termQuery.term[rawHostField] = request.payload.hostname;
         searchRequest.body.query.filtered.filter.bool.must.push(termQuery);
       }
@@ -130,7 +130,7 @@ module.exports = function (server) {
     handler: function (request,reply) {
       var config = require('../../logtrail.json');
       var callWithRequest = server.plugins.elasticsearch.callWithRequest;
-      var rawHostField = config.fields.mapping.hostname + ".raw";
+      var rawHostField = config.fields.mapping.hostname;
       var hostAggRequest = {
         index: config.es.default_index,
         body : {

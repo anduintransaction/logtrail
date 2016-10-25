@@ -98,7 +98,8 @@ html,body {
 }
 
 .message {
-	color: #B0B0B0;
+    color: #B0B0B0;
+    white-space: pre-wrap;
 }
 
 .flex-container-search {
