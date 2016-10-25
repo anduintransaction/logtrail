@@ -42,7 +42,8 @@ html,body {
 	color: black;
 }
 
-.time-option-select-btn {
+.time-option-select-btn,
+.clear-search-btn {
 	padding: .6em;
 	margin-left: .3em;
 	font-weight: bold;

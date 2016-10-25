@@ -306,6 +306,18 @@ app.controller('logtrail', function ($scope, kbnUrl, $route, $routeParams, es, c
     }
   };
 
+    $scope.clearSearch = function() {
+        $scope.userSearchText = null;
+        searchText = '*';
+        $scope.selectedHost = null;
+        var host = 'All';
+        $scope.userDateTimeSeeked = null;
+        var time = 'Now';
+        $location.path('/').search({q: searchText, h: host, t:time});
+        $scope.pickedDateTime = null;
+        doSearch(null,'desc', ['overwrite','reverse'],null);        
+    }
+
   $scope.showDatePicker = function () {
     $scope.datePickerVisible = true;
     if ($scope.pickedDateTime == null) {
@@ -383,7 +395,7 @@ app.controller('logtrail', function ($scope, kbnUrl, $route, $routeParams, es, c
   };
 
   $scope.onProgramClick = function (program) {
-    $scope.userSearchText = config.fields.mapping['program'] + ': \'' + program + '\'';
+    $scope.userSearchText = config.fields.mapping['program'] + ': "' + program + '"';
     $scope.onSearchClick();
   };
 
